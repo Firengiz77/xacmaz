@@ -2,11 +2,10 @@
 
 namespace App\Http\Resources;
 
-use App\Models\GalleryType;
 use TCG\Voyager\Facades\Voyager;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class GalleryResource extends JsonResource
+class FotoGalleryResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -18,8 +17,8 @@ class GalleryResource extends JsonResource
     {
         return [
             'id'=>$this->id,
-            'link'=>$this->link,
-            'type'=> GalleryType::where('id',$this->type_id)->get(),
+            'name' =>$this->name,
+            'attr'=>$this->attr,
             'image'=>Voyager::image($this->image),
         ];
     }

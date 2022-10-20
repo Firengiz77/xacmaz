@@ -2,9 +2,10 @@
 
 namespace App\Http\Resources;
 
+use TCG\Voyager\Facades\Voyager;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class VacancyResource extends JsonResource
+class VideoResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,12 +17,9 @@ class VacancyResource extends JsonResource
     {
         return [
             'id'=>$this->id,
-            'title_1'=>$this->title_1,
-            'desc_1'=>$this->desc_1,
-            'desc_2'=>$this->desc_2,
-            'desc_3'=>$this->desc_3,
-            'end_date'=>$this->end_date,
-            'salary'=>$this->salary,
+            'name' =>$this->name,
+            'link'=>$this->link,
+            'image'=>Voyager::image($this->image),
         ];
     }
 }

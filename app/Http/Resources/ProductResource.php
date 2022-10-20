@@ -2,9 +2,10 @@
 
 namespace App\Http\Resources;
 
+use TCG\Voyager\Facades\Voyager;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class TypeResource extends JsonResource
+class ProductResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -17,6 +18,8 @@ class TypeResource extends JsonResource
         return [
             'id'=>$this->id,
             'name'=>$this->name,
+            'title'=>$this->title,
+            'image'=>Voyager::image($this->image),
         ];
     }
 }

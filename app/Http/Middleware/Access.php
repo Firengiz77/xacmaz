@@ -11,7 +11,7 @@ class Access
             ->header('Access-Control-Allow-Origin', '*')
             ->header('Access-Control-Allow-Methods', '*')
             ->header('Access-Control-Allow-Credentials', true)
-            ->header('Access-Control-Allow-Headers', 'X-CSRF-Token, token , Content-Type, X-Auth-Token, Authorization, Origin')
+            ->header('Access-Control-Allow-Headers', 'X-CSRF-Token, token , Content-Type, X-Auth-Token, Authorization, Origin',301)
             ->header('Accept', 'application/json');
     }
 }

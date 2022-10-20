@@ -20,6 +20,7 @@ class NewsResource extends JsonResource
             'title'=>$this->title,
             'desc'=>$this->desc,
             'image'=>Voyager::image($this->image),
+            'date'=>date('d.m.Y', strtotime($this->created_at)),
         ];
     }
 }

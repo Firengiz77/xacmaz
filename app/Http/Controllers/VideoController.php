@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Gallery;
-use App\Http\Requests\StoreGalleryRequest;
-use App\Http\Requests\UpdateGalleryRequest;
-use App\Http\Resources\GalleryResource;
+use App\Video;
+use App\Http\Requests\StoreNewsRequest;
+use App\Http\Requests\UpdateNewsRequest;
+use App\Http\Resources\VideoResource;
 
-class GalleryController extends Controller
+class VideoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,12 +16,13 @@ class GalleryController extends Controller
      */
     public function index()
     {
-        $gallery = Gallery::orderBy('id','asc')->get();
-        return response()->json(GalleryResource::collection($gallery));
+        $video = Video::orderBy('id','asc')->get();
+        return response()->json(VideoResource::collection($video));
     }
+
     public function single($id){
-        $gallery = Gallery::find($id);
-        return new GalleryResource($gallery);
+        $video = Video::find($id);
+        return new VideoResource($video);
     }
 
     /**
@@ -37,10 +38,10 @@ class GalleryController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreGalleryRequest  $request
+     * @param  \App\Http\Requests\StoreNewsRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreGalleryRequest $request)
+    public function store(StoreNewsRequest $request)
     {
         //
     }
@@ -48,10 +49,10 @@ class GalleryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Gallery  $gallery
+     * @param  \App\Models\News  $news
      * @return \Illuminate\Http\Response
      */
-    public function show(Gallery $gallery)
+    public function show(News $news)
     {
         //
     }
@@ -59,10 +60,10 @@ class GalleryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Gallery  $gallery
+     * @param  \App\Models\News  $news
      * @return \Illuminate\Http\Response
      */
-    public function edit(Gallery $gallery)
+    public function edit(News $news)
     {
         //
     }
@@ -70,11 +71,11 @@ class GalleryController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateGalleryRequest  $request
-     * @param  \App\Models\Gallery  $gallery
+     * @param  \App\Http\Requests\UpdateNewsRequest  $request
+     * @param  \App\Models\News  $news
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateGalleryRequest $request, Gallery $gallery)
+    public function update(UpdateNewsRequest $request, News $news)
     {
         //
     }
@@ -82,10 +83,10 @@ class GalleryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Gallery  $gallery
+     * @param  \App\Models\News  $news
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Gallery $gallery)
+    public function destroy(News $news)
     {
         //
     }

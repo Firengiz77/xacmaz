@@ -10,7 +10,8 @@ use App\Http\Controllers\SliderController;
 use App\Http\Controllers\VacancyController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\FotoGalleryController;
+use App\Http\Controllers\VideoController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -26,7 +27,9 @@ use Illuminate\Support\Facades\Route;
 Route::group(['middleware' => ['access', 'change_lang']], function () {
 // all api
     Route::get('/',[MainController::class,'index'])->name('index');
-    Route::post('/message', [MainController::class, 'message']);
+    Route::post('/message', [MainController::class, 'sendmail']);
+    Route::post('/sendresume',[MainController::class,'sendresume']);
+
 });
 
 // slider
@@ -41,15 +44,15 @@ Route::prefix('news')->group(function(){
 });
 
 // Gallery 
-Route::prefix('gallery')->group(function(){
-    Route::get('/',[GalleryController::class,'index'])->name('getgallery');
-    Route::get('/{id}',[GalleryController::class,'single'])->name('getsinglegallery');
+Route::prefix('fotogallery')->group(function(){
+    Route::get('/',[FotoGalleryController::class,'index'])->name('getgallery');
+    Route::get('/{id}',[FotoGalleryController::class,'single'])->name('getsinglegallery');
 });
 
 // gallery type 
-Route::prefix('type')->group(function(){
-    Route::get('/',[GalleryTypeController::class,'index'])->name('gettype');
-    Route::get('/{id}',[GalleryTypeController::class,'single'])->name('getsingletype');
+Route::prefix('video')->group(function(){
+    Route::get('/',[VideoController::class,'index'])->name('gettype');
+    Route::get('/{id}',[VideoController::class,'single'])->name('getsingletype');
 });
 
 // Vacancy 
@@ -72,15 +75,9 @@ Route::prefix('contact')->group(function(){
 
 
 
-
-
-
-
-
-
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
 
 
 

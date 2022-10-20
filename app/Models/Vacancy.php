@@ -12,8 +12,8 @@ class Vacancy extends Model
     use Translatable;
     use HasFactory;
 
-    protected $fillable =['title','desc','end_date','salary'];
-    protected $translatable = ['title','desc'];
+    protected $fillable =['title_1','desc_1','end_date','salary','desc_2','desc_3'];
+    protected $translatable = ['title_1','desc_1','desc_2','desc_3'];
 
 
 
