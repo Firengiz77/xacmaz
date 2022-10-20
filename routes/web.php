@@ -25,6 +25,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// sssd
 
     Route::get('/resume',function() {
     return view('resume');
